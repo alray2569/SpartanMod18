@@ -1,0 +1,16 @@
+[
+{
+  "modid": "andrew_spartanmod",
+  "name": "SpartanMod",
+  "description": "Adds feathered helmets.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "andrewlray.com",
+  "updateUrl": "",
+  "authorList": ["Andrew Ray"],
+  "credits": "Made for Eric S.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
