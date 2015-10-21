@@ -1,13 +1,5 @@
 package com.andrewlray.mcmods.andrew_spartanmod.items;
 
-import static com.andrewlray.mcmods.andrew_spartanmod.lib.Constants.diamHelmFID;
-import static com.andrewlray.mcmods.andrew_spartanmod.lib.Constants.diamHelmFName;
-import static com.andrewlray.mcmods.andrew_spartanmod.lib.Constants.goldHelmFID;
-import static com.andrewlray.mcmods.andrew_spartanmod.lib.Constants.goldHelmFName;
-import static com.andrewlray.mcmods.andrew_spartanmod.lib.Constants.ironHelmFID;
-import static com.andrewlray.mcmods.andrew_spartanmod.lib.Constants.ironHelmFName;
-import static com.andrewlray.mcmods.andrew_spartanmod.lib.Constants.leathCapFID;
-import static com.andrewlray.mcmods.andrew_spartanmod.lib.Constants.leathCapFName;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.resources.model.ModelResourceLocation;
@@ -64,10 +56,10 @@ public class SMItems {
 			goldF.customCraftingMaterial = Items.gold_ingot;
 			diamondF.customCraftingMaterial = Items.diamond;
 
-			leathCapF = new FeatheredArmor(leatherF, leathCapFID, 0).setUnlocalizedName(leathCapFName);
-			ironHelmF = new FeatheredArmor(ironF, ironHelmFID, 0).setUnlocalizedName(ironHelmFName);
-			goldHelmF = new FeatheredArmor(goldF, goldHelmFID, 0).setUnlocalizedName(goldHelmFName);
-			diamHelmF = new FeatheredArmor(diamondF, diamHelmFID, 0).setUnlocalizedName(diamHelmFName);
+			leathCapF = new FeatheredArmor(leatherF, Constants.leathCapFID, 0).setUnlocalizedName(Constants.leathCapFName);
+			ironHelmF = new FeatheredArmor(ironF, Constants.ironHelmFID, 0).setUnlocalizedName(Constants.ironHelmFName);
+			goldHelmF = new FeatheredArmor(goldF, Constants.goldHelmFID, 0).setUnlocalizedName(Constants.goldHelmFName);
+			diamHelmF = new FeatheredArmor(diamondF, Constants.diamHelmFID, 0).setUnlocalizedName(Constants.diamHelmFName);
 		}
 		preinitialized = true;
 	}
@@ -80,10 +72,10 @@ public class SMItems {
 	 */
 	public static void init(Side side) {
 		if (!initialized) /* Only run once! */{
-			GameRegistry.registerItem(leathCapF, leathCapFName);
-			GameRegistry.registerItem(ironHelmF, ironHelmFName);
-			GameRegistry.registerItem(goldHelmF, goldHelmFName);
-			GameRegistry.registerItem(diamHelmF, diamHelmFName);
+			GameRegistry.registerItem(leathCapF, Constants.leathCapFName);
+			GameRegistry.registerItem(ironHelmF, Constants.ironHelmFName);
+			GameRegistry.registerItem(goldHelmF, Constants.goldHelmFName);
+			GameRegistry.registerItem(diamHelmF, Constants.diamHelmFName);
 
 			if (side == Side.CLIENT) {
 				RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
