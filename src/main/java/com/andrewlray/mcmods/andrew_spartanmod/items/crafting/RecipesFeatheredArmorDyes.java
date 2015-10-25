@@ -10,6 +10,7 @@ import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeHooks;
 
 import com.andrewlray.mcmods.andrew_spartanmod.items.FeatheredArmor;
 import com.andrewlray.mcmods.andrew_spartanmod.items.SMItems;
@@ -22,8 +23,7 @@ import com.andrewlray.mcmods.andrew_spartanmod.items.SMItems;
  * @see IRecipe
  * @see FeatheredArmor
  */
-public class RecipesFeatheredArmorDyes
-		implements IRecipe {
+public class RecipesFeatheredArmorDyes implements IRecipe {
 
 	/**
 	 * Returns true <abbr name="if and only if">iff</abbr> the configuration of
@@ -50,7 +50,8 @@ public class RecipesFeatheredArmorDyes
 				if (stack1.getItem() instanceof FeatheredArmor) {
 					FeatheredArmor farmor = (FeatheredArmor) stack1.getItem();
 
-					if (farmor.getArmorMaterial() != SMItems.leatherF || stack != null) {
+					if (farmor.getArmorMaterial() != SMItems.leatherF
+							|| stack != null) {
 						return false;
 					}
 
@@ -92,7 +93,8 @@ public class RecipesFeatheredArmorDyes
 				if (stack1.getItem() instanceof FeatheredArmor) {
 					farmor = (FeatheredArmor) stack1.getItem();
 
-					if (farmor.getArmorMaterial() != SMItems.leatherF || stack != null) {
+					if (farmor.getArmorMaterial() != SMItems.leatherF
+							|| stack != null) {
 						return null;
 					}
 
@@ -115,7 +117,8 @@ public class RecipesFeatheredArmorDyes
 						return null;
 					}
 
-					float[] afloat = EntitySheep.func_175513_a(EnumDyeColor.byDyeDamage(stack1.getMetadata()));
+					float[] afloat = EntitySheep.func_175513_a(EnumDyeColor
+							.byDyeDamage(stack1.getMetadata()));
 					int b1 = (int) (afloat[0] * 255F);
 					int c1 = (int) (afloat[1] * 255F);
 					d1 = (int) (afloat[2] * 255F);
@@ -152,24 +155,24 @@ public class RecipesFeatheredArmorDyes
 	 * @return The size of this recipe.
 	 */
 	@Override
-	public int getRecipeSize()
-	{
+	public int getRecipeSize() {
 		return 10;
 	}
 
 	/**
 	 * Returns null.
+	 * 
 	 * @return null
 	 */
 	@Override
-	public ItemStack getRecipeOutput()
-	{
+	public ItemStack getRecipeOutput() {
 		return null;
 	}
 
 	@Override
-	public ItemStack[] getRemainingItems(InventoryCrafting p_179532_1_) {
-		return new ItemStack[0];
+	public ItemStack[] getRemainingItems(InventoryCrafting inv) // getRecipeLeftovers
+	{
+		return ForgeHooks.defaultRecipeGetRemainingItems(inv);
 	}
 
 }
