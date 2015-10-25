@@ -10,6 +10,7 @@ import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeHooks;
 
 import com.andrewlray.mcmods.andrew_spartanmod.items.FeatheredArmor;
 import com.andrewlray.mcmods.andrew_spartanmod.items.SMItems;
@@ -167,9 +168,10 @@ public class RecipesFeatheredArmorDyes
 		return null;
 	}
 
-	@Override
-	public ItemStack[] getRemainingItems(InventoryCrafting p_179532_1_) {
-		return new ItemStack[0];
-	}
+    @Override
+    public ItemStack[] getRemainingItems(InventoryCrafting inv) //getRecipeLeftovers
+    {
+        return ForgeHooks.defaultRecipeGetRemainingItems(inv);
+    }
 
 }
