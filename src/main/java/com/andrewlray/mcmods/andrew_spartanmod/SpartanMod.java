@@ -17,7 +17,7 @@ import com.andrewlray.mcmods.andrew_spartanmod.proxy.CommonProxy;
  * 
  * @author Andrew Ray
  */
-@Mod(modid = Constants.MODID, name = Constants.MODNAME, version = "1.8_1.0.1")
+@Mod(modid = Constants.MODID, name = Constants.MODNAME, version = "1.8_1.2")
 public class SpartanMod {
 
 	/**
