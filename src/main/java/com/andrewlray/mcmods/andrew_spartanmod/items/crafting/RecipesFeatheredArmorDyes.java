@@ -51,7 +51,7 @@ public class RecipesFeatheredArmorDyes
 				if (stack1.getItem() instanceof FeatheredArmor) {
 					FeatheredArmor farmor = (FeatheredArmor) stack1.getItem();
 
-					if (farmor.isLeather || stack != null) {
+					if (!farmor.isLeather || stack != null) {
 						return false;
 					}
 
@@ -93,7 +93,7 @@ public class RecipesFeatheredArmorDyes
 				if (stack1.getItem() instanceof FeatheredArmor) {
 					farmor = (FeatheredArmor) stack1.getItem();
 
-					if (farmor.isLeather || stack != null) {
+					if (!farmor.isLeather || stack != null) {
 						return null;
 					}
 
