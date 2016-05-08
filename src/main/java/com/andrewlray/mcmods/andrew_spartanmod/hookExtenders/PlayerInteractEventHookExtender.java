@@ -51,7 +51,7 @@ public class PlayerInteractEventHookExtender {
 		if (item != null && item.getItem() instanceof FeatheredArmor) {
 			FeatheredArmor farmor = (FeatheredArmor) item.getItem();
 			int meta = (Integer) ibs.getProperties().get(BlockCauldron.LEVEL);
-			if (farmor.getArmorMaterial() == SMItems.leatherF && farmor.hasColor(item) && meta != 0) {
+			if (farmor.isLeather && farmor.hasColor(item) && meta != 0) {
 				farmor.removeColor(item);
 				pie.world.setBlockState(pie.pos, ibs.withProperty(BlockCauldron.LEVEL, meta - 1));
 			}

@@ -36,7 +36,9 @@ public class ClientProxy extends CommonProxy {
 		ModelLeatherCapF leathercap = new ModelLeatherCapF(0.5f);
 		ModelHelmetF helmet = new ModelHelmetF(0.5f);
 		
-		armorModels.put(SMItems.leathCapF, leathercap);
+		for (int i = 0; i < 16; ++i) {
+			armorModels.put(SMItems.leathCapF[i], leathercap);
+		}
 		armorModels.put(SMItems.ironHelmF, helmet);
 		armorModels.put(SMItems.goldHelmF, helmet);
 		armorModels.put(SMItems.diamHelmF, helmet);
