@@ -22,37 +22,73 @@ public class SMItems {
 	/** true iff this class has been initialized. */
 	private static boolean initialized = false;
 
-	/** The armor material for the feathered leather cap */
+	/** 
+	 * The armor material for the feathered leather cap 
+	 * 
+	 * @since version 1.1
+	 */
 	public static ArmorMaterial leatherF[];
 
-	/** The armor material for the feathered iron helmet. */
+	/** 
+	 * The armor material for the feathered iron helmet.  
+	 * 
+	 * @since version 1.1
+	 */
 	public static ArmorMaterial ironF[];
 
-	/** The armor material for the feathered gold helmet. */
+	/** 
+	 * The armor material for the feathered gold helmet.  
+	 * 
+	 * @since version 1.1
+	 */
 	public static ArmorMaterial goldF[];
 
-	/** The armor material for the feathered diamond helmet. */
+	/** 
+	 * The armor material for the feathered diamond helmet.  
+	 * 
+	 * @since version 1.1
+	 */
 	public static ArmorMaterial diamondF[];
 
-	/** The colored feathers */
+	/** 
+	 * The colored feathers  
+	 * 
+	 * @since version 1.1
+	 */
 	public static Item colored_feather;
 
-	/** The feathered leather cap. */
+	/** 
+	 * The feathered leather cap.  
+	 * 
+	 * @since version 1.1
+	 */
 	public static Item leathCapF[];
 
-	/** The feathered iron helmet. */
+	/** 
+	 * The feathered iron helmet.  
+	 * 
+	 * @since version 1.1
+	 */
 	public static Item ironHelmF[];
 
-	/** The feathered gold helmet. */
+	/** 
+	 * The feathered gold helmet.  
+	 * 
+	 * @since version 1.1
+	 */
 	public static Item goldHelmF[];
 
-	/** The feathered diamond helmet. */
+	/** 
+	 * The feathered diamond helmet.  
+	 * 
+	 * @since version 1.1
+	 */
 	public static Item diamHelmF[];
 
 	/**
 	 * Old Leather F Material
 	 * 
-	 * @deprecated since 1.2; for compatibility only
+	 * @deprecated version 1.1
 	 */
 	@Deprecated
 	public static ArmorMaterial oldLeatherF;
@@ -60,7 +96,7 @@ public class SMItems {
 	/**
 	 * Old Iron F Material
 	 * 
-	 * @deprecated since 1.2; for compatibility only
+	 * @deprecated version 1.1
 	 */
 	@Deprecated
 	public static ArmorMaterial oldIronF;
@@ -68,7 +104,7 @@ public class SMItems {
 	/**
 	 * Old Gold F Material
 	 * 
-	 * @deprecated since 1.2; for compatibility only
+	 * @deprecated version 1.1
 	 */
 	@Deprecated
 	public static ArmorMaterial oldGoldF;
@@ -76,7 +112,7 @@ public class SMItems {
 	/**
 	 * Old Diamond F Material
 	 * 
-	 * @deprecated since 1.2; for compatibility only
+	 * @deprecated version 1.1
 	 */
 	@Deprecated
 	public static ArmorMaterial oldDiamondF;
@@ -84,7 +120,7 @@ public class SMItems {
 	/**
 	 * Old Leather Helmet
 	 * 
-	 * @deprecated since 1.2; for compatibility only
+	 * @deprecated version 1.1
 	 */
 	@Deprecated
 	public static Item oldLeathCapF;
@@ -92,7 +128,7 @@ public class SMItems {
 	/**
 	 * Old Iron Helmet
 	 * 
-	 * @deprecated since 1.2; for compatibility only
+	 * @deprecated version 1.1
 	 */
 	@Deprecated
 	public static Item oldIronHelmF;
@@ -100,7 +136,7 @@ public class SMItems {
 	/**
 	 * Old Gold Helmet
 	 * 
-	 * @deprecated since 1.2; for compatibility only
+	 * @deprecated version 1.1
 	 */
 	@Deprecated
 	public static Item oldGoldHelmF;
@@ -108,7 +144,7 @@ public class SMItems {
 	/**
 	 * Old Diamond Helmet
 	 * 
-	 * @deprecated since 1.2; for compatibility only
+	 * @deprecated version 1.1
 	 */
 	@Deprecated
 	public static Item oldDiamondHelmF;
