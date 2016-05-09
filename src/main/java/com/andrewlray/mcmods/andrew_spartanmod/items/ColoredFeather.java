@@ -12,6 +12,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ColoredFeather extends Item {
 
+	public static final int SUBS = 15;
+
 	/**
 	 * Creates a new instance of ColoredFeather.
 	 */
@@ -39,7 +41,7 @@ public class ColoredFeather extends Item {
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item itemIn, CreativeTabs tab, List subItems)
     {
-        for (int i = 0; i < 15; ++i)
+        for (int i = 0; i < SUBS; ++i)
         {
             subItems.add(new ItemStack(itemIn, 1, i));
         }
