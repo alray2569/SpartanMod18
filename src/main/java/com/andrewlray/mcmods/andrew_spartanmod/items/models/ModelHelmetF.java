@@ -2,31 +2,30 @@ package com.andrewlray.mcmods.andrew_spartanmod.items.models;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.entity.Entity;
 
 public class ModelHelmetF extends ModelBiped {
 	// fields
-	ModelRenderer r2;
-	ModelRenderer r1;
-	ModelRenderer fr2;
-	ModelRenderer fr1;
-	ModelRenderer top;
-	ModelRenderer featherBk;
-	ModelRenderer featherFr;
-	ModelRenderer b1;
-	ModelRenderer b2;
-	ModelRenderer f1;
-	ModelRenderer f2;
-	ModelRenderer f3;
-	ModelRenderer f4;
-	ModelRenderer l1;
-	ModelRenderer l2;
-	ModelRenderer Shape2;
-	ModelRenderer Feather;
-	ModelRenderer right;
-	ModelRenderer back;
-	ModelRenderer front;
-	ModelRenderer left;
+	private ModelRenderer r2;
+	private ModelRenderer r1;
+	private ModelRenderer fr2;
+	private ModelRenderer fr1;
+	private ModelRenderer top;
+	private ModelRenderer featherBk;
+	private ModelRenderer featherFr;
+	private ModelRenderer b1;
+	private ModelRenderer b2;
+	private ModelRenderer f1;
+	private ModelRenderer f2;
+	private ModelRenderer f3;
+	private ModelRenderer f4;
+	private ModelRenderer l1;
+	private ModelRenderer l2;
+	private ModelRenderer Shape2;
+	private ModelRenderer Feather;
+	private ModelRenderer right;
+	private ModelRenderer back;
+	private ModelRenderer front;
+	private ModelRenderer left;
 
 	public ModelHelmetF(float expand) {
 		super(expand, 0, 64, 64);
@@ -48,14 +47,14 @@ public class ModelHelmetF extends ModelBiped {
 		r1.mirror = false;
 
 		fr2 = new ModelRenderer(this, 36, 32);
-		fr2.addBox(-0.5F, -13F, -6.5F, 1, 2, 13);
+		fr2.addBox(-1F, -13F, -6.5F, 2, 2, 13);
 		fr2.setRotationPoint(0F, 0F, 0F);
 		fr2.setTextureSize(64, 64);
 		fr2.mirror = true;
 		setRotation(fr2, 0F, 0F, 0F);
 
 		fr1 = new ModelRenderer(this, 40, 49);
-		fr1.addBox(-0.5F, -10F, -5.5F, 1, 1, 11);
+		fr1.addBox(-1F, -10F, -5.5F, 2, 1, 11);
 		fr1.setRotationPoint(0F, 0F, 0F);
 		fr1.setTextureSize(64, 64);
 		fr1.mirror = true;
@@ -68,15 +67,15 @@ public class ModelHelmetF extends ModelBiped {
 		top.mirror = true;
 		setRotation(top, 0F, 0F, 0F);
 
-		featherBk = new ModelRenderer(this, 0, 42);
-		featherBk.addBox(-0.5F, -14.5F, 1F, 1, 7, 1);
+		featherBk = new ModelRenderer(this, 51, 51);
+		featherBk.addBox(-1F, -14.5F, 1F, 2, 7, 1);
 		featherBk.setRotationPoint(0F, 0F, 0F);
 		featherBk.setTextureSize(64, 64);
 		featherBk.mirror = true;
 		setRotation(featherBk, -0.3956661F, 0F, 0F);
 
-		featherFr = new ModelRenderer(this, 4, 42);
-		featherFr.addBox(-0.5F, -14.5F, -2F, 1, 7, 1);
+		featherFr = new ModelRenderer(this, 41, 36);
+		featherFr.addBox(-1F, -14.5F, -2F, 2, 7, 1);
 		featherFr.setRotationPoint(0F, 0F, 0F);
 		featherFr.setTextureSize(64, 64);
 		featherFr.mirror = true;
@@ -140,11 +139,31 @@ public class ModelHelmetF extends ModelBiped {
 		setRotation(l2, 0F, 0F, 0F);
 
 		Shape2 = new ModelRenderer(this, 38, 34);
-		Shape2.addBox(-0.5F, -11F, -6F, 1, 1, 12);
+		Shape2.addBox(-1F, -11F, -6F, 2, 1, 12);
 		Shape2.setRotationPoint(0F, 0F, 0F);
 		Shape2.setTextureSize(64, 64);
 		Shape2.mirror = true;
 		setRotation(Shape2, 0F, 0F, 0F);
+
+		Feather = new ModelRenderer(this, "Feather");
+		Feather.setRotationPoint(0F, 0F, 0F);
+		setRotation(Feather, 0.2268928F, 0F, 0F);
+		Feather.mirror = true;
+
+		/*
+		 * right = new ModelRenderer(this, "right"); right.setRotationPoint(0F,
+		 * 0F, 0F); setRotation(right, 0F, 0F, 0F); right.mirror = true;
+		 * 
+		 * 
+		 * back = new ModelRenderer(this, "back"); back.setRotationPoint(0F, 0F,
+		 * 0F); setRotation(back, 0F, 0F, 0F); back.mirror = true;
+		 * 
+		 * front = new ModelRenderer(this, "front"); front.setRotationPoint(0F,
+		 * 0F, 0F); setRotation(front, 0F, 0F, 0F); front.mirror = true;
+		 * 
+		 * left = new ModelRenderer(this, "left"); left.setRotationPoint(0F, 0F,
+		 * 0F); setRotation(left, 0F, 0F, 0F); left.mirror = true;
+		 */
 
 		this.bipedHead.addChild(r2);
 		this.bipedHead.addChild(r1);
@@ -162,7 +181,7 @@ public class ModelHelmetF extends ModelBiped {
 		this.bipedHead.addChild(l1);
 		this.bipedHead.addChild(l2);
 		this.bipedHead.addChild(Shape2);
-		
+
 	}
 
 	private void setRotation(ModelRenderer model, float x, float y, float z) {

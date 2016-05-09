@@ -20,7 +20,7 @@ import com.andrewlray.mcmods.andrew_spartanmod.items.SMItems;
  * @see MinecraftForge
  * @see SubscribeEvent
  */
-public class CauldronExtender {
+public class PlayerInteractEventHookExtender {
 
 	/** true iff this class has been initialized. */
 	private static boolean init = false;
@@ -40,13 +40,20 @@ public class CauldronExtender {
 	public void blockClick(PlayerInteractEvent pie) {
 		if (pie.action == Action.RIGHT_CLICK_BLOCK) {
 			IBlockState block = pie.world.getBlockState(pie.pos);
-			ItemStack item = pie.entityPlayer.getCurrentEquippedItem();
-			if (block.getBlock() == Blocks.cauldron && item != null && item.getItem() instanceof FeatheredArmor) {
-				FeatheredArmor farmor = (FeatheredArmor) item.getItem();
-				if (farmor.getArmorMaterial() == SMItems.leatherF && farmor.hasColor(item) && (Integer) block.getProperties().get(BlockCauldron.LEVEL) != 0) {
-					farmor.removeColor(item);
-					pie.world.setBlockState(pie.pos, block.withProperty(BlockCauldron.LEVEL, (Integer) block.getProperties().get(BlockCauldron.LEVEL) - 1));
-				}
+			if (block.getBlock() == Blocks.cauldron) {
+				cauldron_onRightClick(pie, block);
+			}
+		}
+	}
+	
+	private static void cauldron_onRightClick(PlayerInteractEvent pie, IBlockState ibs) {
+		ItemStack item = pie.entityPlayer.getCurrentEquippedItem();
+		if (item != null && item.getItem() instanceof FeatheredArmor) {
+			FeatheredArmor farmor = (FeatheredArmor) item.getItem();
+			int meta = (Integer) ibs.getProperties().get(BlockCauldron.LEVEL);
+			if (farmor.isLeather && farmor.hasColor(item) && meta != 0) {
+				farmor.removeColor(item);
+				pie.world.setBlockState(pie.pos, ibs.withProperty(BlockCauldron.LEVEL, meta - 1));
 			}
 		}
 	}
@@ -60,7 +67,7 @@ public class CauldronExtender {
 	 */
 	public static void init() {
 		if (!init) {
-			MinecraftForge.EVENT_BUS.register(new CauldronExtender());
+			MinecraftForge.EVENT_BUS.register(new PlayerInteractEventHookExtender());
 		}
 		init = true;
 	}

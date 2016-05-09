@@ -16,5 +16,6 @@ public class Constants {
 	public static final String ironHelmFName = "iron_helmet_f";
 	public static final String goldHelmFName = "gold_helmet_f";
 	public static final String diamHelmFName = "diamond_helmet_f";
+	public static final String featherName = "coloredfeather";
 	
 }

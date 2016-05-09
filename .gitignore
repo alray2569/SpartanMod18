@@ -20,6 +20,7 @@ build/tmp/*
 build/.gitignore
 eclipse/*
 gradle/*
+.metadata/*
 
 # Windows image file caches
 Thumbs.db

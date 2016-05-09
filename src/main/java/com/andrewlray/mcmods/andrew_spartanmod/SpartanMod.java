@@ -6,7 +6,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-import com.andrewlray.mcmods.andrew_spartanmod.hookExtenders.CauldronExtender;
+import com.andrewlray.mcmods.andrew_spartanmod.hookExtenders.PlayerInteractEventHookExtender;
 import com.andrewlray.mcmods.andrew_spartanmod.items.SMItems;
 import com.andrewlray.mcmods.andrew_spartanmod.items.crafting.SMRecipes;
 import com.andrewlray.mcmods.andrew_spartanmod.lib.Constants;
@@ -17,7 +17,7 @@ import com.andrewlray.mcmods.andrew_spartanmod.proxy.CommonProxy;
  * 
  * @author Andrew Ray
  */
-@Mod(modid = Constants.MODID, name = Constants.MODNAME, version = "1.8_1.0.1")
+@Mod(modid = Constants.MODID, name = Constants.MODNAME, version = "1.8_1.2")
 public class SpartanMod {
 
 	/**
@@ -68,14 +68,14 @@ public class SpartanMod {
 	 * @see CommonProxy#registerProxies()
 	 * @see SMItems#init()
 	 * @see SMRecipes#init()
-	 * @see CauldronExtender#init()
+	 * @see PlayerInteractEventHookExtender#init()
 	 */
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent e) {
 		proxy.registerProxies();
 		SMItems.init(e.getSide());
 		SMRecipes.init();
-		CauldronExtender.init();
+		PlayerInteractEventHookExtender.init();
 	}
 
 	/**

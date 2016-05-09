@@ -50,8 +50,7 @@ public class RecipesFeatheredArmorDyes implements IRecipe {
 				if (stack1.getItem() instanceof FeatheredArmor) {
 					FeatheredArmor farmor = (FeatheredArmor) stack1.getItem();
 
-					if (farmor.getArmorMaterial() != SMItems.leatherF
-							|| stack != null) {
+					if (!farmor.isLeather || stack != null) {
 						return false;
 					}
 
@@ -92,9 +91,8 @@ public class RecipesFeatheredArmorDyes implements IRecipe {
 			if (stack1 != null) {
 				if (stack1.getItem() instanceof FeatheredArmor) {
 					farmor = (FeatheredArmor) stack1.getItem();
-
-					if (farmor.getArmorMaterial() != SMItems.leatherF
-							|| stack != null) {
+					
+					if (!farmor.isLeather || stack != null) {
 						return null;
 					}
 
@@ -169,10 +167,10 @@ public class RecipesFeatheredArmorDyes implements IRecipe {
 		return null;
 	}
 
-	@Override
-	public ItemStack[] getRemainingItems(InventoryCrafting inv) // getRecipeLeftovers
-	{
-		return ForgeHooks.defaultRecipeGetRemainingItems(inv);
-	}
+    @Override
+    public ItemStack[] getRemainingItems(InventoryCrafting inv) //getRecipeLeftovers
+    {
+        return ForgeHooks.defaultRecipeGetRemainingItems(inv);
+    }
 
 }

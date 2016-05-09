@@ -4,11 +4,14 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.List;
 
 import com.andrewlray.mcmods.andrew_spartanmod.lib.Constants;
 import com.andrewlray.mcmods.andrew_spartanmod.lib.SMUtil;
@@ -23,6 +26,8 @@ import com.andrewlray.mcmods.andrew_spartanmod.proxy.ClientProxy;
  */
 public class FeatheredArmor
 		extends ItemArmor {
+	
+	public boolean isLeather;
 
 	/**
 	 * Creates a new instance of feathered armor with the given material, id,
@@ -35,46 +40,12 @@ public class FeatheredArmor
 	 * @param slot
 	 *            The type of this armor.
 	 */
-	public FeatheredArmor(ArmorMaterial material, int id, int slot) {
+	public FeatheredArmor(ArmorMaterial material, int id, int slot, boolean isLeather) {
 		super(material, id, slot);
+		this.isLeather = isLeather;
 		this.setCreativeTab(CreativeTabs.tabCombat);
 		this.setMaxStackSize(1);
 	}
-
-	/**
-	 * Returns the armor texture location.
-	 * 
-	 * @param stack
-	 *            The {@linkplain ItemStack} to get the texture for.
-	 * @param entity
-	 *            The {@linkplain Entity} wearing the armor.
-	 * @param slot
-	 *            The type of the armor.
-	 * @param layer
-	 *            Either "overlay" for the overlay layer or null for the main
-	 *            layer.
-	 * @return The texture for this armor
-	 */
-	@Override
-	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {
-		if (slot == 0 && layer == null) {
-			String name = SMUtil.getUnwrappedUnlocalizedName(this.getUnlocalizedName());
-			return String.format("%s:textures/model/%s.png", Constants.MODID, name);
-		}
-		if (slot == 0 && layer == "overlay" && this.getArmorMaterial() == SMItems.leatherF) {
-			String name = SMUtil.getUnwrappedUnlocalizedName(this.getUnlocalizedName());
-			return String.format("%s:textures/model/%s_overlay.png", Constants.MODID, name);
-		}
-		return null;
-	}
-
-	/**
-	 * Registers icons as necessary with the icon register
-	 * 
-	 * @param iconRegister
-	 *            The {@linkplain IIconRegister} with which to register icons.
-	 * @see IIcon
-	 */
 
 	/**
 	 * Returns the armor model for this armor.
@@ -115,7 +86,7 @@ public class FeatheredArmor
 	 */
 	@Override
 	public boolean hasColor(ItemStack stack) {
-		return this.getArmorMaterial() != SMItems.leatherF ? false : (!stack.hasTagCompound() ? false : (!stack.getTagCompound().hasKey("display", 10) ? false : stack.getTagCompound().getCompoundTag("display").hasKey("color", 3)));
+		return this.isLeather ? false : (!stack.hasTagCompound() ? false : (!stack.getTagCompound().hasKey("display", 10) ? false : stack.getTagCompound().getCompoundTag("display").hasKey("color", 3)));
 	}
 
 	/**
@@ -129,7 +100,7 @@ public class FeatheredArmor
 	 */
 	@Override
 	public int getColor(ItemStack stack) {
-		if (this.getArmorMaterial() == SMItems.leatherF) {
+		if (this.isLeather) {
 			NBTTagCompound nbt = stack.getTagCompound();
 			if (nbt == null)
 				return 10511680;
@@ -154,7 +125,7 @@ public class FeatheredArmor
 	 */
 	@Override
 	public void setColor(ItemStack stack, int color) {
-		if (this.getArmorMaterial() != SMItems.leatherF) {
+		if (!this.isLeather) {
 			throw new UnsupportedOperationException("Can\'t dye non-leather!");
 		} else {
 			NBTTagCompound nbt = stack.getTagCompound();
@@ -181,7 +152,7 @@ public class FeatheredArmor
 	 */
 	@Override
 	public void removeColor(ItemStack stack) {
-		if (this.getArmorMaterial() == SMItems.leatherF)
+		if (this.isLeather)
 		{
 			NBTTagCompound nbttagcompound = stack.getTagCompound();
 

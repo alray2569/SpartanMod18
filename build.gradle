@@ -17,9 +17,9 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.8.2_1.0.2"
-group= "com.andrewlray.mcmods.andrew_spartanmod" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "spartanmod"
+version = "1.8.2_1.1"
+group= "com.andrewlray.mcmods" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "andrew_spartanmod"
 
 minecraft {
     version = "1.8-11.14.3.1450"
