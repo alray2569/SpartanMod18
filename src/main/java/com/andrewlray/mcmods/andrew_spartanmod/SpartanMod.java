@@ -1,16 +1,22 @@
 package com.andrewlray.mcmods.andrew_spartanmod;
 
+import org.apache.logging.log4j.Level;
+
+import com.andrewlray.mcmods.andrew_spartanmod.achievement.AchievementGiver;
+import com.andrewlray.mcmods.andrew_spartanmod.achievement.SMAchievements;
+import com.andrewlray.mcmods.andrew_spartanmod.hookExtenders.PlayerInteractEventHookExtender;
+import com.andrewlray.mcmods.andrew_spartanmod.items.SMItems;
+import com.andrewlray.mcmods.andrew_spartanmod.items.crafting.SMOreDictHandler;
+import com.andrewlray.mcmods.andrew_spartanmod.items.crafting.SMRecipes;
+import com.andrewlray.mcmods.andrew_spartanmod.lib.Constants;
+import com.andrewlray.mcmods.andrew_spartanmod.proxy.CommonProxy;
+
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-
-import com.andrewlray.mcmods.andrew_spartanmod.hookExtenders.PlayerInteractEventHookExtender;
-import com.andrewlray.mcmods.andrew_spartanmod.items.SMItems;
-import com.andrewlray.mcmods.andrew_spartanmod.items.crafting.SMRecipes;
-import com.andrewlray.mcmods.andrew_spartanmod.lib.Constants;
-import com.andrewlray.mcmods.andrew_spartanmod.proxy.CommonProxy;
+import net.minecraftforge.fml.relauncher.FMLRelaunchLog;
 
 /**
  * The mod class for SpartanMod.
@@ -76,6 +82,9 @@ public class SpartanMod {
 		SMItems.init(e.getSide());
 		SMRecipes.init();
 		PlayerInteractEventHookExtender.init();
+		SMOreDictHandler.init();
+		SMAchievements.init();
+		AchievementGiver.init();
 	}
 
 	/**
@@ -92,5 +101,17 @@ public class SpartanMod {
 	public void postInit(FMLPostInitializationEvent e) {
 
 	}
+	
+	/**
+	  * Logs errors to the console using FMLRelaunchLog.
+	  * 
+	  * @param level The level of the log
+	  * @param string The string to log
+	  * @since version 1.1.0.1
+	  * @see FMLRelaunchLog
+	  */
+	 public static void log(Level level, String string) {
+	 	FMLRelaunchLog.log(Constants.MODID, level, string);
+	 }
 
 }

@@ -238,7 +238,7 @@ public class SMItems {
 					renderItem.getItemModelMesher().register(goldHelmF[i], 0, new ModelResourceLocation(Constants.MODID + ":" + Constants.goldHelmFName + i, "inventory"));
 					renderItem.getItemModelMesher().register(diamHelmF[i], 0, new ModelResourceLocation(Constants.MODID + ":" + Constants.diamHelmFName + i, "inventory"));
 				}
-				for (int i = 0; i < 15; i++) {
+				for (int i = 0; i < ColoredFeather.SUBS; i++) {
 					ModelBakery.addVariantName(colored_feather, Constants.MODID + ":" + Constants.featherName + "_" + EnumDyeColor.byDyeDamage(i).getUnlocalizedName());
 					renderItem.getItemModelMesher().register(colored_feather, i, new ModelResourceLocation(Constants.MODID + ":" + Constants.featherName + "_" + EnumDyeColor.byDyeDamage(i).getUnlocalizedName(), "inventory"));
 				}
